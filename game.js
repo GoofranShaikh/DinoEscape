@@ -6,6 +6,8 @@ var gameOver=document.querySelector('.gameOver');
 var dianasore=document.querySelector('.dianasore');
 var paly=document.querySelector('.play');
 var fa=document.querySelector('.fa-play-circle');
+var myMusic= document.getElementById("music");
+music.style.display='none'
 
 document.onkeydown=function(e){
 if (isOn==true){
@@ -33,7 +35,6 @@ if (isOn==true){
 
 setInterval(()=>{
 
- 
   mx=parseInt(window.getComputedStyle(man).getPropertyValue('left'));
   my=parseInt(window.getComputedStyle(man).getPropertyValue('bottom'));
   dx=parseInt(window.getComputedStyle(dianasore).getPropertyValue('left'));
@@ -42,13 +43,14 @@ setInterval(()=>{
   offsetX=Math.abs(mx-dx);
   offsetY=Math.abs(my-dy);
   //console.log (offsetX,offsetY);
-  if(offsetX<=90 && offsetY<=50){
+  if(offsetX<=100 && offsetY<=50){
     dianasore.classList.remove('dinoAnimate');
     gameOver.style.display='block';
     isGameOn=false;
     fa.style.display='block';
+    myMusic.pause();
   }
-  else if (cross && (offsetX<140 && offsetY>90)){
+  else if (cross && (offsetX<140 && offsetY>100)){
     Scores+=1
     cross=false
     updateScore(Scores)
@@ -69,6 +71,8 @@ function startGame(){
   // isGameOn=true;
   
   isOn=true;
+  myMusic.play();
+  
   gameOver.style.display='none';
   dianasore.classList.add('dinoAnimate');
   fa.style.display='none';
