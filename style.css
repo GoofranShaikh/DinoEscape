@@ -1,0 +1,76 @@
+*{
+margin:0;
+padding:0;
+box-sizing: border-box;
+overflow: hidden;
+}
+.gameContainer{
+    height: 100vh;
+    width: 100vw;
+    background-image: url('volcano.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.man{
+    position:absolute;
+    background-image: url('run.png');
+    height: 200px;
+    width: 170px;
+    background-size: cover;
+    bottom: 0px;
+}
+
+.dianasore{
+    position:absolute;
+    background-image: url('dianasore.png');
+    height: 250px;
+    width: 240px;
+    background-size: cover;
+    bottom: 0;
+    left:80vw;
+}
+.AnimateMan{
+    animation: manJump 1s linear;
+}
+@keyframes manJump{
+    0%{
+        bottom:0
+    }
+    50%{
+        bottom:433px;
+        
+    }
+    100%{
+        bottom:0;
+       
+    }
+}
+
+.dinoAnimate{
+    animation:dinoMove 5s linear infinite;
+}
+@keyframes dinoMove{
+    0%{
+        left:100vw;
+    }
+    
+    100%{
+        left:-10vw;
+    }
+}
+.gameOver{
+    display: none;          
+    position: absolute;
+    top: 283px;
+    left: 451px;
+    font-size: 119px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+.Score{
+    font-size: 40px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+.play{
+    display: block;
+}
